@@ -1,4 +1,3 @@
-# mention dynamic linking!
 import struct
 
 charp = gdb.lookup_type('char').pointer()
@@ -24,7 +23,7 @@ def print_messages(words):
   while i<len(words):
     fmt = read_string(words[i])
     n = words[i+1]
-    args = [int(words[j]) for j in xrange(i+2,i+2+n)]
+    args = words[i+2:i+2+n]
     print fmt % convert_args(fmt, args), 
     i += n+2
 
